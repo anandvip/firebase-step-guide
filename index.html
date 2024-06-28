@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase Setup Checklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Firebase Setup Checklist</h1>
+        <ul>
+            <li>
+                <input type="checkbox" id="step1">
+                <label for="step1">Go to Firebase Console and Create a New Project</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step2">
+                <label for="step2">Register Your Web App in the Firebase Project</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step3">
+                <label for="step3">Copy the Firebase SDK Configuration</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step4">
+                <label for="step4">Create an HTML File and Paste the Firebase Configuration</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step5">
+                <label for="step5">Install Node.js</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step6">
+                <label for="step6">Install Firebase CLI</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step7">
+                <label for="step7">Login to Firebase using Firebase CLI</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step8">
+                <label for="step8">Initialize Firebase in Your Project Directory</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step9">
+                <label for="step9">Build Your Web App</label>
+            </li>
+            <li>
+                <input type="checkbox" id="step10">
+                <label for="step10">Deploy Your Web App to Firebase Hosting</label>
+            </li>
+        </ul>
+    </div>
+    <script>
+        // Function to load the progress from local storage
+        function loadProgress() {
+            for (let i = 1; i <= 10; i++) {
+                const checkbox = document.getElementById('step' + i);
+                const isChecked = localStorage.getItem('step' + i) === 'true';
+                checkbox.checked = isChecked;
+            }
+        }
+
+        // Function to save the progress to local storage
+        function saveProgress() {
+            for (let i = 1; i <= 10; i++) {
+                const checkbox = document.getElementById('step' + i);
+                localStorage.setItem('step' + i, checkbox.checked);
+            }
+        }
+
+        // Load progress when the page loads
+        window.onload = loadProgress;
+
+        // Add event listeners to checkboxes to save progress when changed
+        for (let i = 1; i <= 10; i++) {
+            const checkbox = document.getElementById('step' + i);
+            checkbox.addEventListener('change', saveProgress);
+        }
+    </script>
+</body>
+</html>
